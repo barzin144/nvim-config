@@ -142,11 +142,11 @@ map("n", "<leader>cl", function()
 end, { desc = "LSP Info" })
 
 -- Navigation
-map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "References" })
-map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
-map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
-map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+-- map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+-- map("n", "gr", vim.lsp.buf.references, { desc = "References" })
+-- map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+-- map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
+-- map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 
 -- Hover & signature
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
