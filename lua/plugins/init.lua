@@ -237,11 +237,11 @@ return {
     end,
   },
   {
-    "cliffback/netcoredbg-macos-arm64.nvim",
+    "Cliffback/netcoredbg-macOS-arm64.nvim",
     ft = "cs",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
-      require("netcoredbg-macos-arm64").setup(require "dap")
+      require("netcoredbg-macOS-arm64").setup(require "dap")
     end,
   },
 }
