@@ -111,7 +111,9 @@ map("n", "<leader>un", snacks.notifier.hide, { desc = "Dismiss All Notifications
 map({ "n", "t" }, "<C-/>", function()
   snacks.terminal()
 end, { desc = "Toggle Terminal" })
-map("n", "<C-_>",function() snacks.terminal() end, { desc = "which_key_ignore" })
+map("n", "<C-_>", function()
+  snacks.terminal()
+end, { desc = "which_key_ignore" })
 map({ "n", "t" }, "]]", function()
   snacks.words.jump(vim.v.count1)
 end, { desc = "Next Reference" })
@@ -133,3 +135,52 @@ map("n", "<leader>N", function()
     },
   }
 end, { desc = "Neovim News" })
+
+-- LSP Info
+map("n", "<leader>cl", function()
+  require("snacks").picker.lsp_config()
+end, { desc = "LSP Info" })
+
+-- Navigation
+map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+map("n", "gr", vim.lsp.buf.references, { desc = "References" })
+map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+
+-- Hover & signature
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+map("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+
+-- Code actions & codelens
+map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map({ "n", "x" }, "<leader>cC", function()
+  vim.lsp.codelens.run()
+end, { desc = "Run Codelens" })
+map("n", "<leader>cc", function()
+  vim.lsp.codelens.enable(true)
+end, { desc = "Refresh Codelens" })
+
+-- Rename
+map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>cR", function()
+  require("snacks").rename.rename_file()
+end, { desc = "Rename File" })
+
+-- References navigation (Snacks)
+map("n", "]]", function()
+  require("snacks").words.jump(vim.v.count1)
+end, { desc = "Next Reference" })
+
+map("n", "[[", function()
+  require("snacks").words.jump(-vim.v.count1)
+end, { desc = "Prev Reference" })
+
+map("n", "<A-n>", function()
+  require("snacks").words.jump(vim.v.count1, true)
+end, { desc = "Next Reference" })
+
+map("n", "<A-p>", function()
+  require("snacks").words.jump(-vim.v.count1, true)
+end, { desc = "Prev Reference" })
