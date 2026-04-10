@@ -32,10 +32,6 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      registries = {
-        "github:mason-org/mason-registry",
-        "github:crashdummyy/mason-registry",
-      },
       ensure_installed = {
         "lua-language-server",
         "xmlformatter",
@@ -214,12 +210,12 @@ return {
       })
     end,
   },
-  -- {
-  --   "Cliffback/netcoredbg-macOS-arm64.nvim",
-  --   ft = "cs",
-  --   dependencies = { "mfussenegger/nvim-dap" },
-  --   config = function()
-  --     require("netcoredbg-macOS-arm64").setup(require "dap")
-  --   end,
-  -- },
+  {
+    "Cliffback/netcoredbg-macOS-arm64.nvim",
+    ft = "cs",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("netcoredbg-macOS-arm64").setup(require "dap")
+    end,
+  },
 }
