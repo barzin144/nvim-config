@@ -34,7 +34,7 @@ return {
     opts = {
       registries = {
         "github:mason-org/mason-registry",
-        "github:Crashdummyy/mason-registry",
+        "github:crashdummyy/mason-registry",
       },
       ensure_installed = {
         "lua-language-server",
