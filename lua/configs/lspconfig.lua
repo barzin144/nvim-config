@@ -6,7 +6,7 @@ vim.lsp.enable(servers)
 -- read :h vim.lsp.config for changing options of lsp servers
 vim.diagnostic.config {
   underline = false,
-  virtual_text = true,
+  virtual_text = false,
   update_in_insert = false,
   severity_sort = true,
   signs = {
@@ -42,4 +42,4 @@ vim.lsp.config("roslyn_ls", {
   },
 })
 
-vim.lsp.enable "roslyn_ls"
+vim.lsp.enable("roslyn_ls", true)

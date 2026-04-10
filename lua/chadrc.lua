@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "chadracula-evondev",
+  theme = "oceanic-next",
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
@@ -19,5 +19,19 @@ M.ui = {
     enabled = false,
   },
 }
+
+M.lspconfig = function()
+  require("nvchad.lsp").diagnostic_config()
+  -- Custom diagnostic overrides
+  vim.diagnostic.config {
+    virtual_text = {
+      spacing = 4,
+      source = "if_many",
+      prefix = "●",
+    },
+    signs = true,
+    underline = true,
+  }
+end
 
 return M

@@ -30,6 +30,15 @@ return {
     },
   },
   {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy", -- Or `LspAttach`
+    priority = 1000, -- needs to be loaded in first
+    config = function()
+      require("tiny-inline-diagnostic").setup()
+      vim.diagnostic.config { virtual_text = false } -- Only if needed in your configuration, if you already have native LSP diagnostics
+    end,
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -38,13 +47,11 @@ return {
         "csharpier",
         "prettier",
         "stylua",
-        "bicep-lsp",
         "html-lsp",
         "css-lsp",
         "eslint-lsp",
         "typescript-language-server",
         "json-lsp",
-        "rust-analyzer",
       },
     },
   },
@@ -175,9 +182,13 @@ return {
     opts = {
       options = {
       -- stylua: ignore
-      close_command = function(n) Snacks.bufdelete(n) end,
+      close_command = function(n) 
+        Snacks.bufdelete(n) 
+      end,
       -- stylua: ignore
-      right_mouse_command = function(n) Snacks.bufdelete(n) end,
+      right_mouse_command = function(n) 
+        Snacks.bufdelete(n) 
+      end,
         always_show_bufferline = false,
         offsets = {
           {
