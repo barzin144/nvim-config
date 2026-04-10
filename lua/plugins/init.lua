@@ -49,16 +49,7 @@ return {
         "typescript-language-server",
         "json-lsp",
         "rust-analyzer",
-        "roslyn",
       },
-    },
-  },
-  {
-    "seblyng/roslyn.nvim",
-    ---@module 'roslyn.config'
-    ft = { "cs", "razor" },
-    opts = {
-      -- your configuration comes here; leave empty for default settings
     },
   },
   {
@@ -191,18 +182,7 @@ return {
       close_command = function(n) Snacks.bufdelete(n) end,
       -- stylua: ignore
       right_mouse_command = function(n) Snacks.bufdelete(n) end,
-        diagnostics = "nvim_lsp",
         always_show_bufferline = false,
-        diagnostics_indicator = function(_, _, diag)
-          local ret = ""
-          if diag.error then
-            ret = ret .. " " .. diag.error .. " "
-          end
-          if diag.warning then
-            ret = ret .. " " .. diag.warning
-          end
-          return vim.trim(ret)
-        end,
         offsets = {
           {
             filetype = "neo-tree",
@@ -234,12 +214,12 @@ return {
       })
     end,
   },
-  {
-    "Cliffback/netcoredbg-macOS-arm64.nvim",
-    ft = "cs",
-    dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      require("netcoredbg-macOS-arm64").setup(require "dap")
-    end,
-  },
+  -- {
+  --   "Cliffback/netcoredbg-macOS-arm64.nvim",
+  --   ft = "cs",
+  --   dependencies = { "mfussenegger/nvim-dap" },
+  --   config = function()
+  --     require("netcoredbg-macOS-arm64").setup(require "dap")
+  --   end,
+  -- },
 }
