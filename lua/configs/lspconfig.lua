@@ -26,6 +26,12 @@ vim.lsp.config("roslyn_ls", {
         dynamicRegistration = true,
       },
     },
+     textDocument = {
+      foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      },
+    },
   },
   settings = {
     ["csharp|inlay_hints"] = {
